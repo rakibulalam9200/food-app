@@ -7,9 +7,10 @@ import ResultList from "../components/ResultList";
 
 
 const SearchScreen = () => {
+    //console.log(props)
     const [term, setTerm] = useState('');
     const [searchApi,errorMessage,results] = useResult(term);
-    console.log(results);
+    // console.log(results);
 
     const filterResultsByPrice = (price) =>{
         return results.filter(result=>{
@@ -17,7 +18,7 @@ const SearchScreen = () => {
         })
     }
     return (
-        <View>
+        <View style={{flex:1}}>
             <SearchBar
                 term= {term}
                 onChangeTerm={setTerm}
@@ -28,7 +29,7 @@ const SearchScreen = () => {
             {/*    errorMessage ? <Text>Some Thing Goes Wrong !!!</Text>:null*/}
             {/*}*/}
             <ScrollView>
-                <Text style={{marginLeft:15}}>Result Found: {results.length}</Text>
+                {/*<Text style={{marginLeft:15}}>Result Found: {results.length}</Text>*/}
                 <ResultList results={filterResultsByPrice('$')} title="Cost Effective"/>
                 <ResultList results={filterResultsByPrice('$$')} title="Bit Pricier"/>
                 <ResultList results={filterResultsByPrice('$$$')} title="Bit Spender"/>

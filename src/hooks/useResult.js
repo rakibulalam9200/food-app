@@ -6,7 +6,7 @@ const useResult = (term) => {
     const [errorMessage, setErrorMessage] = useState(false);
 
     const searchApi = async (searchTerm) => {
-        console.log('called Api')
+
         try {
             const response = await yelp.get('/search',{
                 params:{
